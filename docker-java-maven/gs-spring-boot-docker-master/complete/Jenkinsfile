@@ -4,7 +4,7 @@
 				}
 		stage('Build Image') {
 		    def mvnHome = tool 'apache-maven-3.2.1'
-		    sh "${mvnHome}/bin/mvn package dockerfile:build"
+		    sh "${mvnHome}/bin/mvn -f /var/lib/jenkins/workspace/Jenkins-docker/docker-java-maven/gs-spring-boot-docker-master/complete/pom.xml package dockerfile:build"
 				}
 		stage('Docker Image Push') {
 		    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
