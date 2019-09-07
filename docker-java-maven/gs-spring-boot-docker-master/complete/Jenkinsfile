@@ -1,0 +1,16 @@
+pipeline {
+    node {
+	    stage('Checkout') {
+		checkout scm
+				}
+		stage('Build Image') {
+		    sh mvn package dockerfile:build
+				}
+		stage('Docker Image Push') {
+		    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+            }
+		}
+	}
+}
