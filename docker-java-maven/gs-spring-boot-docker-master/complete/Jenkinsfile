@@ -1,4 +1,8 @@
-    node {
+pipeline {
+  environment {
+    registry = "shubhampadiya/gs-spring-boot-docker"
+  }
+	node {
 	    stage('Checkout') {
 		checkout scm
 				}
@@ -12,3 +16,4 @@
             }
 		}
 	}
+}
