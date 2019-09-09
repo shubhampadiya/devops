@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "shubhampadiya/gs-spring-boot-docker"
+    registry = "shubhampadiya / gs-spring-boot-docker"
   }
   agent any
   stages {
